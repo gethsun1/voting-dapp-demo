@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Web3 from 'web3';
 import config from './config';
+import Grid from '@mui/material/Grid';
+import Paper from '@mui/material/Paper';
+import PollCard from './PollCard'; // Import the PollCard component
 
 const PollList = () => {
   const [polls, setPolls] = useState([]);
@@ -9,6 +12,8 @@ const PollList = () => {
     // Fetch and display the polls
     fetchPolls();
   }, []);
+  
+
 
   const fetchPolls = async () => {
     try {
@@ -20,62 +25,55 @@ const PollList = () => {
       // Log ABI for debugging
       console.log('ABI:', config.contractAbi);
   
-      const contract = new web3.eth.Contract(config.contractAbi, config.contractAddress);
+      const contract = new web3.eth.Contract(config.contractAbi, '0x93087083b4b109B8CB4760FfB075978372B8C2E5');
   
       // Fetch the total number of polls
-      const pollsCount = await contract.methods.pollsCount().call();
-
+      const pollsCount = await contract.methods.getPollsCount().call();
+  
       // Fetch details for each poll
-      const pollsArray = await Promise.all(
-        Array(parseInt(pollsCount)).fill().map(async (element, index) => {
-          const pollDetails = await contract.methods.getPollDetails(index).call();
-          return {
-            id: index,
-            title: pollDetails[0],
-            description: pollDetails[1],
-            duration: pollDetails[2],
-            startTime: pollDetails[3],
-            isActive: pollDetails[5],
-          };
-        })
-      );
-
+      const pollsArray = [];
+      for (let index = 0; index < pollsCount; index++) {
+        const pollDetails = await contract.methods.getPollDetails(index).call();
+  
+        // Fetch vote counts for each poll
+        const yesVotes = await contract.methods.getYesVotes(index).call();
+        const noVotes = await contract.methods.getNoVotes(index).call();
+  
+        pollsArray.push({
+          id: index,
+          title: pollDetails[0],
+          description: pollDetails[1],
+          duration: pollDetails[2],
+          startTime: pollDetails[3],
+          isActive: pollDetails[5],
+          yesVotes: parseInt(yesVotes),
+          noVotes: parseInt(noVotes),
+        });
+      }
+  
       setPolls(pollsArray);
     } catch (error) {
-      console.error(error);
+      console.error('Error fetching polls:', error.message);
     }
   };
+  
+  
+    
 
   return (
     <div className="poll-list-container">
       <h3 className="poll-list-heading">Created Polls</h3>
-      {polls.map((poll) => (
-        <div key={poll.id} className="poll-card">
-          <h4>{poll.title}</h4>
-          <p>{poll.description}</p>
-          <p>Duration: {poll.duration} seconds</p>
-          <p>Start Time: {poll.startTime}</p>
-          <p>Status: {poll.isActive ? 'Active' : 'Inactive'}</p>
-          <div className="yes-votes">Yes Votes: {poll.yesVotes}</div>
-          <div className="no-votes">No Votes: {poll.noVotes}</div>
-        </div>
-      ))}
+      <Grid container spacing={2}>
+        {polls.map((poll) => (
+          <Grid item xs={12} sm={6} md={4} lg={3} key={poll.id}>
+            <Paper elevation={3} style={{ padding: '16px' }}>
+              <PollCard poll={poll} />
+            </Paper>
+          </Grid>
+        ))}
+      </Grid>
     </div>
   );
 };
 
 export default PollList;
-
-
-
-
-
-
-
-
-
-
-
-
-
-

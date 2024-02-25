@@ -77,16 +77,19 @@
 }
 
 
+
 .poll-list-container {
   text-align: center;
   margin-top: 20px;
 }
+
 
 .poll-list-heading {
   font-weight: bold;
   font-size: 24px;
   color: #7b1fa2;
 }
+
 
 .poll-card {
   border: 4px solid #7b1fa2;
@@ -95,18 +98,52 @@
   margin: 10px 0;
 }
 
-.yes-votes {
-  background-color: green;
-  color: #fff;
-  padding: 5px;
-  border-radius: 5px;
-  margin-right: 5px;
+
+.yes-no-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+  
 }
 
-.no-votes {
-  background-color: red;
-  color: #fff;
-  padding: 5px;
-  border-radius: 5px;
-  margin-right: 5px;
+.votes-info {
+  margin-top: 16px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
