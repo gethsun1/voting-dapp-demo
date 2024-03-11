@@ -1,0 +1,96 @@
+.app-container {
+  background-color: #fef5e7;
+  padding: 20px;
+}
+
+.app-content {
+  margin-top: 20px;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  background-color: #3d32ed;
+  color: #ffffff;
+  padding: 15px;
+}
+
+.header-section-1 {
+  flex: 3;
+}
+
+.section-divider {
+  border: 2px solid #7b1fa2;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.candidates-section {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.candidate-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+
+.candidate-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin: 10px;
+  width: 400px; 
+  height: 400px; 
+}
+
+
+
+.candidate-image {
+  width: 200px; /* Set the desired size */
+  height: 200px; /* Set the desired size */
+  border-radius: 50%;
+  object-fit: cover; /* Maintain aspect ratio */
+  margin-bottom: 10px;
+}
+
+.candidate-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.party-symbol {
+  width: 80px; /* Set the desired size */
+  height: 80px; /* Set the desired size */
+  object-fit: cover; /* Maintain aspect ratio */
+  margin-top: 10px;
+  margin-bottom: auto;
+}
+
+
+.connect-wallet-button-container {
+  text-align: right;
+}
+
+button {
+  background-color: #7b1fa2;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #5e0b84;
+}
