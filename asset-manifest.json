@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/voting-dapp-demo/static/css/main.b6530b57.css",
+    "main.js": "/voting-dapp-demo/static/js/main.2467df23.js",
+    "static/js/453.50941900.chunk.js": "/voting-dapp-demo/static/js/453.50941900.chunk.js",
+    "static/media/man4.jpeg": "/voting-dapp-demo/static/media/man4.077f28ac0ced4ded7ca1.jpeg",
+    "static/media/man2.jpeg": "/voting-dapp-demo/static/media/man2.ec6d417afc7881465205.jpeg",
+    "static/media/man3.jpeg": "/voting-dapp-demo/static/media/man3.065f63b27a17331f82f3.jpeg",
+    "static/media/man1.jpeg": "/voting-dapp-demo/static/media/man1.11c16ba933291efa46d6.jpeg",
+    "index.html": "/voting-dapp-demo/index.html",
+    "main.b6530b57.css.map": "/voting-dapp-demo/static/css/main.b6530b57.css.map",
+    "main.2467df23.js.map": "/voting-dapp-demo/static/js/main.2467df23.js.map",
+    "453.50941900.chunk.js.map": "/voting-dapp-demo/static/js/453.50941900.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b6530b57.css",
+    "static/js/main.2467df23.js"
+  ]
+}
